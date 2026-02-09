@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSTA منصة الموصلات الذكية</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:"Cairo",sans-serif;
+    background:linear-gradient(120deg,#ffffff,#6a00ff);
+}
+
+/* ===== Header ===== */
+header{
+    background:linear-gradient(90deg,#6a00ff,#0044ff);
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-box img{
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    background:#fff;
+    padding:4px;
+}
+
+nav a{
+    margin:0 10px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    background:#fff;
+    color:#6a00ff;
+    padding:6px 14px;
+    border-radius:12px;
+}
+
+/* ===== Slider ===== */
+.slider{
+    position:relative;
+    height:360px;
+    overflow:hidden;
+}
+
+.slider img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:1.2s;
+}
+
+.slider img.active{opacity:1}
+
+/* ===== General ===== */
+.container{padding:30px}
+
+.card{
+    background:#fff;
+    border:2px solid #00cfff;
+    padding:20px;
+    border-radius:18px;
+    margin-bottom:20px;
+    box-shadow:0 4px 18px rgba(0,0,0,.1);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    background:linear-gradient(135deg,#fff,#efe6ff);
+    border-right:5px solid #00cfff;
+}
+
+input,button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:15px;
+}
+
+button{
+    background:linear-gradient(135deg,#6a00ff,#00cfff);
+    color:#fff;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* ===== Payment ===== */
+.payment-box{
+    background:#f6f8ff;
+    border-radius:20px;
+    padding:25px;
+    margin-top:30px;
+}
+
+.payment-card{
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.payment-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.payment-header img{width:60px}
+
+.voda{
+    text-align:center;
+    font-weight:bold;
+}
+
+/* ===== Fake Map ===== */
+.map-box{
+    margin-top:30px;
+}
+
+.fake-map{
+    height:320px;
+    background:
+        radial-gradient(circle at 30% 40%,rgba(255,0,0,.35),transparent 40%),
+        radial-gradient(circle at 70% 60%,rgba(0,255,0,.35),transparent 40%),
+        linear-gradient(#dfe9ff,#c6d4ff);
+    border-radius:20px;
+    position:relative;
+}
+
+.pin{
+    position:absolute;
+    font-size:22px;
+}
+
+.pin.red{top:40%;left:30%}
+.pin.green{top:60%;left:70%}
+
+.legend{
+    display:flex;
+    gap:20px;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+/* ===== AI ===== */
+.ai-box{
+    background:linear-gradient(135deg,#1a0033,#4b0082);
+    color:white;
+    padding:25px;
+    border-radius:18px;
+    margin-top:30px;
+}
+
+footer{
+    background:#111;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+.fake-map img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-box">
+        <img src="1.jpeg">
+        <h2>OSTA</h2>
+    </div>
+<nav class="main-nav">
+    <a href="#">الرئيسية</a>
+    <a href="file:///C:/Users/Ahm8d/OneDrive/Pictures/AdobeSystemsIncorporated.AdobePhotoshopExpress_ynb6jyjzte8ga!App/project/ices_page.html">الخدمات</a>
+
+    <a href="#ai" class="ai-btn">المساعد الذكي</a>
+
+    <a href="https://gamma.app/docs/OSTA-oxxfo2c2smnlwwx">تواصل معنا</a>
+</nav>
+
+</header>
+
+<div class="slider">
+    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a" class="active">
+    <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023">
+    <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d">
+</div>
+
+<div class="container">
+
+<div class="card">
+    <h2>📍 معرفة أقرب مسار</h2>
+    <input placeholder="حدد موقعك">
+    <input placeholder="حدد وجهتك">
+    <button>بحث ذكي</button>
+</div>
+
+<!-- ===== Payment Section ===== -->
+<div class="payment-box" id="pay">
+    <h2>💳 اختر وسيلة الدفع</h2>
+
+    <div class="payment-card">
+        <div class="payment-header">
+            <h3>الدفع بالبطاقة</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
+        </div>
+        <input placeholder="رقم الكارت">
+        <input placeholder="تاريخ الانتهاء">
+        <input placeholder="CVV">
+        <button>ادفع الآن</button>
+    </div>
+
+    <div class="payment-card voda">
+        Vodafone Cash 📱
+        <input placeholder="بيانات الدفع">
+        <button>تأكيد الدفع</button>
+    </div>
+</div>
+
+<!-- ===== Fake Map ===== -->
+<div class="map-box" id="map">
+    <h2>🗺 خريطة الازدحام</h2>
+    <div class="fake-map">
+
+    <!-- ضع هنا صورة خريطة الازدحام -->
+    <img src="3.png" alt="خريطة الازدحام">
+
+    <div class="pin red">🔴</div>
+    <div class="pin green">🟢</div>
+
+</div>
+
+
+    <div class="legend">
+        <span>🔴 زحمة</span>
+        <span>🟢 طريق مفتوح</span>
+    </div>
+</div>
+
+<div class="ai-box">
+    <h2>🤖 OSTA AI</h2>
+    <input placeholder="اسأل عن الزحمة أو السعر">
+    <button>اسأل</button>
+</div>
+
+</div>
+
+<footer>© 2026 OSTA    Smart   Transport  Designed by    (    BINARY BRAINS TEAM    ) </footer>
+
+<script>
+let slides=document.querySelectorAll(".slider img");
+let i=0;
+setInterval(()=>{
+    slides[i].classList.remove("active");
+    i=(i+1)%slides.length;
+    slides[i].classList.add("active");
+},3500);
+</script>
+
+</body>
+</html>
