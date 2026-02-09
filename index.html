@@ -24,6 +24,7 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    flex-wrap:wrap;
 }
 
 .logo-box{
@@ -52,6 +53,13 @@ nav a:hover{
     color:#6a00ff;
     padding:6px 14px;
     border-radius:12px;
+}
+
+/* ===== Burger Menu ===== */
+.burger{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
 }
 
 /* ===== Slider ===== */
@@ -149,12 +157,15 @@ button:hover{
 
 .fake-map{
     height:320px;
-    background:
-        radial-gradient(circle at 30% 40%,rgba(255,0,0,.35),transparent 40%),
-        radial-gradient(circle at 70% 60%,rgba(0,255,0,.35),transparent 40%),
-        linear-gradient(#dfe9ff,#c6d4ff);
     border-radius:20px;
     position:relative;
+}
+
+.fake-map img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:20px;
 }
 
 .pin{
@@ -188,13 +199,41 @@ footer{
     padding:20px;
     margin-top:40px;
 }
-.fake-map img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:20px;
+
+/* ===== Responsive ===== */
+@media (max-width:768px){
+
+    .burger{
+        display:block;
+    }
+
+    .main-nav{
+        width:100%;
+        display:none;
+        flex-direction:column;
+        background:linear-gradient(90deg,#6a00ff,#0044ff);
+        margin-top:15px;
+        border-radius:15px;
+        overflow:hidden;
+        animation:fadeDown .4s ease;
+    }
+
+    .main-nav a{
+        padding:15px;
+        margin:0;
+        border-top:1px solid rgba(255,255,255,.2);
+        text-align:center;
+    }
+
+    .main-nav.show{
+        display:flex;
+    }
 }
 
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-10px);}
+    to{opacity:1;transform:translateY(0);}
+}
 </style>
 </head>
 
@@ -205,12 +244,13 @@ footer{
         <img src="1.jpeg">
         <h2>OSTA</h2>
     </div>
+
+    <div class="burger" onclick="toggleMenu()">☰</div>
+
 <nav class="main-nav">
     <a href="#">الرئيسية</a>
     <a href="file:///C:/Users/Ahm8d/OneDrive/Pictures/AdobeSystemsIncorporated.AdobePhotoshopExpress_ynb6jyjzte8ga!App/project/ices_page.html">الخدمات</a>
-
-    <a href="#ai" class="ai-btn">المساعد الذكي</a>
-
+    <a href="#ai">المساعد الذكي</a>
     <a href="https://gamma.app/docs/OSTA-oxxfo2c2smnlwwx">تواصل معنا</a>
 </nav>
 
@@ -231,7 +271,6 @@ footer{
     <button>بحث ذكي</button>
 </div>
 
-<!-- ===== Payment Section ===== -->
 <div class="payment-box" id="pay">
     <h2>💳 اختر وسيلة الدفع</h2>
 
@@ -253,19 +292,14 @@ footer{
     </div>
 </div>
 
-<!-- ===== Fake Map ===== -->
 <div class="map-box" id="map">
     <h2>🗺 خريطة الازدحام</h2>
+
     <div class="fake-map">
-
-    <!-- ضع هنا صورة خريطة الازدحام -->
-    <img src="3.png" alt="خريطة الازدحام">
-
-    <div class="pin red">🔴</div>
-    <div class="pin green">🟢</div>
-
-</div>
-
+        <img src="3.png" alt="خريطة الازدحام">
+        <div class="pin red">🔴</div>
+        <div class="pin green">🟢</div>
+    </div>
 
     <div class="legend">
         <span>🔴 زحمة</span>
@@ -273,7 +307,7 @@ footer{
     </div>
 </div>
 
-<div class="ai-box">
+<div class="ai-box" id="ai">
     <h2>🤖 OSTA AI</h2>
     <input placeholder="اسأل عن الزحمة أو السعر">
     <button>اسأل</button>
@@ -281,7 +315,9 @@ footer{
 
 </div>
 
-<footer>© 2026 OSTA    Smart   Transport  Designed by    (    BINARY BRAINS TEAM    ) </footer>
+<footer>
+© 2026 OSTA Smart Transport Designed by ( BINARY BRAINS TEAM )
+</footer>
 
 <script>
 let slides=document.querySelectorAll(".slider img");
@@ -291,6 +327,10 @@ setInterval(()=>{
     i=(i+1)%slides.length;
     slides[i].classList.add("active");
 },3500);
+
+function toggleMenu(){
+    document.querySelector(".main-nav").classList.toggle("show");
+}
 </script>
 
 </body>
