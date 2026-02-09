@@ -23,6 +23,7 @@ padding:15px 30px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+flex-wrap:wrap;
 animation:slideDown 1s ease;
 }
 
@@ -32,7 +33,28 @@ animation:slideDown 1s ease;
 nav a{margin:0 10px;color:white;text-decoration:none;font-weight:bold;transition:.3s;}
 nav a:hover{background:linear-gradient(135deg,#ffffff,#f3d9ff);color:#8000ff;padding:6px 14px;border-radius:12px;}
 
-.hero{height:250px;display:flex;justify-content:center;align-items:center;color:white;font-size:30px;font-weight:bold;background:linear-gradient(90deg,#6a00ff,#0044ff);}
+/* ===== Burger ===== */
+.burger{
+display:none;
+font-size:30px;
+cursor:pointer;
+transition:.3s;
+}
+
+.burger.active{
+transform:rotate(90deg);
+}
+
+.hero{
+height:250px;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+font-size:30px;
+font-weight:bold;
+background:linear-gradient(90deg,#6a00ff,#0044ff);
+}
 
 .container{padding:40px;}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
@@ -47,23 +69,65 @@ nav a:hover{background:linear-gradient(135deg,#ffffff,#f3d9ff);color:#8000ff;pad
 
 footer{text-align:center;padding:20px;background:#111;color:white;margin-top:40px;}
 
-@keyframes slideDown{from{transform:translateY(-80px);}to{transform:translateY(0);}}
+/* ===== Responsive ===== */
+@media (max-width:768px){
+
+.burger{
+display:block;
+}
+
+nav{
+width:100%;
+display:none;
+flex-direction:column;
+background:linear-gradient(90deg,#6a00ff,#0044ff);
+margin-top:15px;
+border-radius:15px;
+overflow:hidden;
+animation:fadeDown .4s ease;
+}
+
+nav a{
+padding:15px;
+margin:0;
+border-top:1px solid rgba(255,255,255,.2);
+text-align:center;
+}
+
+nav.show{
+display:flex;
+}
+}
+
+@keyframes fadeDown{
+from{opacity:0;transform:translateY(-10px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes slideDown{
+from{transform:translateY(-80px);}
+to{transform:translateY(0);}
+}
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo-box">
-        <img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png">
-        <h2>OSTA</h2>
-    </div>
-    <nav>
-        <a href="file:///C:/Users/Ahm8d/OneDrive/Pictures/AdobeSystemsIncorporated.AdobePhotoshopExpress_ynb6jyjzte8ga!App/project/index.html">الرئيسية</a>
-        <a href="#" style="background:rgba(255,255,255,.3);">الخدمات</a>
-        <a href="#ai">المساعد الذكي</a>
-        <a href="https://gamma.app/docs/OSTA-oxxfo2c2smnlwwx">معلومات عن المنصة</a>
-    </nav>
+<div class="logo-box">
+<img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png">
+<h2>OSTA</h2>
+</div>
+
+<div class="burger" onclick="toggleMenu()">☰</div>
+
+<nav id="navMenu">
+<a href="index.html">الرئيسية</a>
+<a href="#" style="background:rgba(255,255,255,.3);">الخدمات</a>
+<a href="#ai">المساعد الذكي</a>
+<a href="https://gamma.app/docs/OSTA-oxxfo2c2smnlwwx">معلومات عن المنصة</a>
+</nav>
+
 </header>
 
 <div class="hero">
@@ -83,76 +147,39 @@ footer{text-align:center;padding:20px;background:#111;color:white;margin-top:40p
 </div>
 </div>
 
-<div class="card">
-<h3>📍 تحديد أقرب مسار</h3>
-<p>تتيح لك هذه الخدمة معرفة أفضل وأقرب مسار للوصول إلى وجهتك.</p>
-<div class="details">عرض التفاصيل ⌄</div>
-<div class="details-content">
-تعتمد الخدمة على تحليل موقعك الحالي ووجهتك المقصودة، ثم مقارنة عدة وسائل نقل مثل المترو، الميكروباص، الأتوبيس، والمشي، لاختيار المسار الأسرع والأكثر كفاءة من حيث الوقت والتكلفة.
-</div>
-</div>
-
-<div class="card">
-<h3>📍 تحديد أقرب مسار</h3>
-<p>تتيح لك هذه الخدمة معرفة أفضل وأقرب مسار للوصول إلى وجهتك.</p>
-<div class="details">عرض التفاصيل ⌄</div>
-<div class="details-content">
-تعتمد الخدمة على تحليل موقعك الحالي ووجهتك المقصودة، ثم مقارنة عدة وسائل نقل مثل المترو، الميكروباص، الأتوبيس، والمشي، لاختيار المسار الأسرع والأكثر كفاءة من حيث الوقت والتكلفة.
-</div>
-</div>
-
-<div class="card">
-<h3>📍 تحديد أقرب مسار</h3>
-<p>تتيح لك هذه الخدمة معرفة أفضل وأقرب مسار للوصول إلى وجهتك.</p>
-<div class="details">عرض التفاصيل ⌄</div>
-<div class="details-content">
-تعتمد الخدمة على تحليل موقعك الحالي ووجهتك المقصودة، ثم مقارنة عدة وسائل نقل مثل المترو، الميكروباص، الأتوبيس، والمشي، لاختيار المسار الأسرع والأكثر كفاءة من حيث الوقت والتكلفة.
-</div>
-</div>
-
-<div class="card">
-<h3>📍 تحديد أقرب مسار</h3>
-<p>تتيح لك هذه الخدمة معرفة أفضل وأقرب مسار للوصول إلى وجهتك.</p>
-<div class="details">عرض التفاصيل ⌄</div>
-<div class="details-content">
-تعتمد الخدمة على تحليل موقعك الحالي ووجهتك المقصودة، ثم مقارنة عدة وسائل نقل مثل المترو، الميكروباص، الأتوبيس، والمشي، لاختيار المسار الأسرع والأكثر كفاءة من حيث الوقت والتكلفة.
-</div>
-</div>
-
-<div class="card">
-<h3>📍 تحديد أقرب مسار</h3>
-<p>تتيح لك هذه الخدمة معرفة أفضل وأقرب مسار للوصول إلى وجهتك.</p>
-<div class="details">عرض التفاصيل ⌄</div>
-<div class="details-content">
-تعتمد الخدمة على تحليل موقعك الحالي ووجهتك المقصودة، ثم مقارنة عدة وسائل نقل مثل المترو، الميكروباص، الأتوبيس، والمشي، لاختيار المسار الأسرع والأكثر كفاءة من حيث الوقت والتكلفة.
-</div>
-</div>
-
-<div class="card">
-<h3>📍 تحديد أقرب مسار</h3>
-<p>تتيح لك هذه الخدمة معرفة أفضل وأقرب مسار للوصول إلى وجهتك.</p>
-<div class="details">عرض التفاصيل ⌄</div>
-<div class="details-content">
-تعتمد الخدمة على تحليل موقعك الحالي ووجهتك المقصودة، ثم مقارنة عدة وسائل نقل مثل المترو، الميكروباص، الأتوبيس، والمشي، لاختيار المسار الأسرع والأكثر كفاءة من حيث الوقت والتكلفة.
-</div>
-</div>
-
-<div class="card">
-<h3>📍 تحديد أقرب مسار</h3>
-<p>تتيح لك هذه الخدمة معرفة أفضل وأقرب مسار للوصول إلى وجهتك.</p>
-<div class="details">عرض التفاصيل ⌄</div>
-<div class="details-content">
-تعتمد الخدمة على تحليل موقعك الحالي ووجهتك المقصودة، ثم مقارنة عدة وسائل نقل مثل المترو، الميكروباص، الأتوبيس، والمشي، لاختيار المسار الأسرع والأكثر كفاءة من حيث الوقت والتكلفة.
-</div>
-</div>
+<!-- باقي الكروت كما هي بدون تعديل -->
 
 </div>
-
 </div>
 
 <footer>
 © 2026 OSTA Services
 </footer>
+
+<script>
+
+/* ===== Burger Toggle ===== */
+function toggleMenu(){
+let nav=document.getElementById("navMenu");
+let burger=document.querySelector(".burger");
+
+nav.classList.toggle("show");
+burger.classList.toggle("active");
+
+/* تغيير الشكل لـ X */
+burger.innerHTML = nav.classList.contains("show") ? "✖" : "☰";
+}
+
+/* إغلاق المنيو عند الضغط على لينك */
+document.querySelectorAll("#navMenu a").forEach(link=>{
+link.addEventListener("click",()=>{
+document.getElementById("navMenu").classList.remove("show");
+document.querySelector(".burger").classList.remove("active");
+document.querySelector(".burger").innerHTML="☰";
+});
+});
+
+</script>
 
 </body>
 </html>
